@@ -37,6 +37,26 @@ local characterList = { -- The list of characters
     {
         name = "bf-car_neo",
         displayName = "bf car neo"
+    },
+    {
+        name = "bf_b",
+        displayName = "bf remix"
+    },
+    {
+        name = "bf-car_b",
+        displayName = "bf car remix"
+    },
+    {
+        name = "bf-christmas_b",
+        displayName = "bf festival remix"
+    },
+    {
+        name = "bf-pixel_b",
+        displayName = "bf pixel remix"
+    },
+    {
+        name = "pico-player_b",
+        displayName = "pico player remix"
     }
 }
 

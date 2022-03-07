@@ -3416,8 +3416,8 @@
         "bpm": 172,
         "sections": 0,
         "needsVoices": true,
-        "player1": "bf",
-        "player2": "pico",
+        "player1": "b-bf",
+        "player2": "b-spico",
         "sectionLengths": [],
         "speed": 2.3
     }

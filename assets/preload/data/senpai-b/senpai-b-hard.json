@@ -1,10 +1,10 @@
 {
 	"song": {
 		"sectionLengths": [],
-		"player1": "bf-pixel",
+		"player1": "bf-pixel_b",
 		"events": [],
-		"gfVersion": "gf-pixel",
-		"player2": "senpai",
+		"gfVersion": "gf-pixel_b",
+		"player2": "senpai_b",
 		"notes": [
 			{
 				"sectionNotes": [
