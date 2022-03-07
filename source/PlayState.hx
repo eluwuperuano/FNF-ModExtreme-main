@@ -1488,6 +1488,8 @@ class PlayState extends MusicBeatState
 				case 'senpai' | 'roses' | 'thorns' | 'b-senpai' | 'b-roses' | 'b-thorns':
 					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
+					if(daSong == 'b-roses') FlxG.sound.play(Paths.sound('ANGRY'));
+					schoolIntro(doof);
 
 				default:
 					startCountdown();
@@ -1856,11 +1858,17 @@ class PlayState extends MusicBeatState
 		senpaiEvil.x += 300;
 
 		var songName:String = Paths.formatToSongPath(SONG.song);
-		if (songName == 'roses' || songName == 'thorns')
+		if (songName == 'roses' || songName == 'thorns' || songName == 'b-roses' || songName == 'b-thorns')
 		{
 			remove(black);
 
 			if (songName == 'thorns')
+			{
+				add(red);
+				camHUD.visible = false;
+			}
+			
+			if (songName == 'b-thorns')
 			{
 				add(red);
 				camHUD.visible = false;
@@ -1914,15 +1922,7 @@ class PlayState extends MusicBeatState
 					{
 						add(dialogueBox);
 					}
-				}
-				else
-					startCountdown();
-
-				remove(black);
-
-				if (dialogueBox != null)
-					{
-						if (Paths.formatToSongPath(SONG.song) == 'b-thorns')
+					if (Paths.formatToSongPath(SONG.song) == 'b-thorns')
 						{
 							add(senpaiEvil);
 							senpaiEvil.alpha = 0;
@@ -1957,11 +1957,11 @@ class PlayState extends MusicBeatState
 						{
 							add(dialogueBox);
 						}
-					}
-					else
-						startCountdown();
-	
-					remove(black);
+				}
+				else
+					startCountdown();
+
+				remove(black);
 			}
 		});
 	}
