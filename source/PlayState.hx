@@ -438,9 +438,9 @@ class PlayState extends MusicBeatState
 					curStage = 'mall';
 				case 'b-winter-horrorland':
 					curStage = 'mallEvil';
-				case 'b-senpai' | 'b-roses':
+				case 'senpai-b' | 'roses-b':
 					curStage = 'school';
-				case 'b-thorns':
+				case 'thorns-b':
 					curStage = 'schoolEvil';	
 				default:
 					curStage = 'stage';
@@ -1485,10 +1485,10 @@ class PlayState extends MusicBeatState
 							}
 						});
 					});
-				case 'senpai' | 'roses' | 'thorns' | 'b-senpai' | 'b-roses' | 'b-thorns':
+				case 'senpai' | 'roses' | 'thorns' | 'senpai-b' | 'roses-b' | 'thorns-b':
 					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
-					if(daSong == 'b-roses') FlxG.sound.play(Paths.sound('ANGRY'));
+					if(daSong == 'roses-b') FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 
 				default:
