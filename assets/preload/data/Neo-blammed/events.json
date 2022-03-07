@@ -1,0 +1,44 @@
+{
+	"song": {
+		"speed": 2.7,
+		"stage": null,
+		"player1": "bf",
+		"player2": "pico_neo",
+		"player3": null,
+		"events": [
+			[
+				23272.7272727273,
+				[
+					[
+						"Blammed Lights",
+						"1",
+						""
+					],
+					[
+						"Blammed Lights",
+						"0",
+						""
+					]
+				]
+			],
+			[
+				34727.2727272727,
+				[
+					[
+						"Blammed Lights",
+						"0",
+						""
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": null,
+		"validScore": false,
+		"gfVersion": "gf",
+		"bpm": 165,
+		"arrowSkin": null,
+		"needsVoices": true,
+		"song": "Neo-Blammed"
+	}
+}

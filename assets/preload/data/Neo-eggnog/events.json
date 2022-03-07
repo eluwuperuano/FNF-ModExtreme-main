@@ -1,0 +1,39 @@
+{
+	"song": {
+		"speed": 2.4,
+		"stage": null,
+		"player1": "bf_neo",
+		"player2": "parents-christmas_neo",
+		"player3": null,
+		"events": [
+			[
+				89600,
+				[
+					[
+						"Change Character",
+						"1",
+						"parents-horror_neo"
+					]
+				]
+			],
+			[
+				115600,
+				[
+					[
+						"Play Animation",
+						"hey",
+						"0"
+					]
+				]
+			]
+		],
+		"notes": [],
+		"splashSkin": "noteSplashesNEO",
+		"validScore": false,
+		"gfVersion": "gf_neo",
+		"bpm": 150,
+		"arrowSkin": "NOTE_assetsNEO",
+		"needsVoices": true,
+		"song": "Neo-Eggnog"
+	}
+}

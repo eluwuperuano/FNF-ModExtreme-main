@@ -1,0 +1,43 @@
+{
+	"storyName": "Spooky Month",
+	"hideFreeplay": false,
+	"weekBackground": "halloween",
+	"weekBefore": "week1",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"spooky",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"Neo Spookeez",
+			"spooky_neo",
+			[
+				34,
+				51,
+				68
+			]
+		],
+		[
+			"Neo South",
+			"spooky_neo",
+			[
+				34,
+				51,
+				68
+			]
+		],
+		[
+			"Illusion",
+			"monster_neo",
+			[
+				34,
+				51,
+				68
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "Week 2"
+}

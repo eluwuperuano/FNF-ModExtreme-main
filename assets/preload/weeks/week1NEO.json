@@ -1,0 +1,22 @@
+{
+	"songs": [
+		["Neo Bopeebo", "dad_neo", [0, 234, 255]],
+		["Neo Fresh", "dad_neo", [0, 234, 255]],
+		["Neo Dadbattle", "dad_neo", [0, 234, 255]]
+	],
+
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"weekBackground": "stage",
+
+	"storyName": "Daddy Dearest",
+	"weekBefore": "",
+	"weekName": "Week 1NEO",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}

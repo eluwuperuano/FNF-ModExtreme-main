@@ -1,0 +1,9 @@
+{
+	"directory": "week4NEO",
+	"defaultZoom": 0.7,
+	"isPixelStage": false,
+
+	"boyfriend": [1690, -300],
+	"girlfriend": [1230, -220],
+	"opponent": [1030, -300]
+}
