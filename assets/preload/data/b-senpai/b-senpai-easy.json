@@ -4,7 +4,7 @@
 		"player1": "bf-pixel",
 		"events": [],
 		"gfVersion": "gf-pixel",
-		"player2": "senpai",
+		"player2": "b-senpai",
 		"notes": [
 			{
 				"sectionNotes": [
@@ -2931,7 +2931,7 @@
 			}
 		],
 		"player3": null,
-		"song": "B-Senpai",
+		"song": "b-senpai",
 		"validScore": true,
 		"sections": 0,
 		"needsVoices": true,

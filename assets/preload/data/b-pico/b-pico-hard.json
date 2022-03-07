@@ -1,4 +1,4 @@
-{"song":{"song":"Pico","notes":[
+{"song":{"song":"b-Pico","notes":[
 {"mustHitSection":true,"typeOfSection":0,"lengthInSteps":16,"bpm":163,"changeBPM":true,"altAnim":false,"sectionNotes":[]},
 {"mustHitSection":true,"typeOfSection":0,"lengthInSteps":16,"bpm":163,"changeBPM":true,"altAnim":false,"sectionNotes":[]},
 {"mustHitSection":false,"typeOfSection":0,"lengthInSteps":16,"bpm":163,"changeBPM":true,"altAnim":false,"sectionNotes":[
@@ -550,4 +550,4 @@
 [72791.41104294479,0,0],
 [72883.43558282209,1,0],
 [73251.53374233129,2,0]]}
-],"bpm":163,"sections":0,"needsVoices":true,"player1":"bf","player2":"pico","sectionLengths":[],"speed":2.3}}
+],"bpm":163,"sections":0,"needsVoices":true,"player1":"bf","player2":"b-Pico","sectionLengths":[],"speed":2.3}}
