@@ -428,6 +428,20 @@ class PlayState extends MusicBeatState
 					curStage = 'mallneo';
 				case 'hallucination':
 					curStage = 'mallEvilneo';
+				case 'b-spookeez' | 'b-south' | 'b-monster':
+					curStage = 'spooky';
+				case 'b-pico' | 'b-blammed' | 'b-philly' | 'b-philly-nice':
+					curStage = 'philly';
+				case 'b-milf' | 'b-satin-panties' | 'b-high':
+					curStage = 'limo';
+				case 'b-cocoa' | 'b-eggnog':
+					curStage = 'mall';
+				case 'b-winter-horrorland':
+					curStage = 'mallEvil';
+				case 'b-senpai' | 'b-roses':
+					curStage = 'school';
+				case 'b-thorns':
+					curStage = 'schoolEvil';	
 				default:
 					curStage = 'stage';
 			}
@@ -1471,7 +1485,7 @@ class PlayState extends MusicBeatState
 							}
 						});
 					});
-				case 'senpai' | 'roses' | 'thorns':
+				case 'senpai' | 'roses' | 'thorns' | 'b-senpai' | 'b-roses' | 'b-thorns':
 					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 
@@ -1905,6 +1919,49 @@ class PlayState extends MusicBeatState
 					startCountdown();
 
 				remove(black);
+
+				if (dialogueBox != null)
+					{
+						if (Paths.formatToSongPath(SONG.song) == 'b-thorns')
+						{
+							add(senpaiEvil);
+							senpaiEvil.alpha = 0;
+							new FlxTimer().start(0.3, function(swagTimer:FlxTimer)
+							{
+								senpaiEvil.alpha += 0.15;
+								if (senpaiEvil.alpha < 1)
+								{
+									swagTimer.reset();
+								}
+								else
+								{
+									senpaiEvil.animation.play('idle');
+									FlxG.sound.play(Paths.sound('Senpai_Dies'), 1, false, null, true, function()
+									{
+										remove(senpaiEvil);
+										remove(red);
+										FlxG.camera.fade(FlxColor.WHITE, 0.01, true, function()
+										{
+											add(dialogueBox);
+											camHUD.visible = true;
+										}, true);
+									});
+									new FlxTimer().start(3.2, function(deadTime:FlxTimer)
+									{
+										FlxG.camera.fade(FlxColor.WHITE, 1.6, false);
+									});
+								}
+							});
+						}
+						else
+						{
+							add(dialogueBox);
+						}
+					}
+					else
+						startCountdown();
+	
+					remove(black);
 			}
 		});
 	}
