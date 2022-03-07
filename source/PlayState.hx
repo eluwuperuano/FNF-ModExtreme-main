@@ -1485,7 +1485,7 @@ class PlayState extends MusicBeatState
 							}
 						});
 					});
-				case 'senpai' | 'roses' | 'thorns' | 'senpai-b' | 'roses-b' | 'thorns-b':
+				case 'senpai' | 'roses' | 'thorns' | 'roses-b':
 					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 					if(daSong == 'roses-b') FlxG.sound.play(Paths.sound('ANGRY'));
