@@ -428,16 +428,6 @@ class PlayState extends MusicBeatState
 					curStage = 'mallneo';
 				case 'hallucination':
 					curStage = 'mallEvilneo';
-				case 'b-spookeez' | 'b-south' | 'b-monster':
-					curStage = 'spooky';
-				case 'b-pico' | 'b-blammed' | 'b-philly' | 'b-philly-nice':
-					curStage = 'philly';
-				case 'b-milf' | 'b-satin-panties' | 'b-high':
-					curStage = 'limo';
-				case 'b-cocoa' | 'b-eggnog':
-					curStage = 'mall';
-				case 'b-winter-horrorland':
-					curStage = 'mallEvil';
 				default:
 					curStage = 'stage';
 			}
@@ -3252,7 +3242,7 @@ class PlayState extends MusicBeatState
 				if(Math.isNaN(lightId)) lightId = 0;
 
 				if(lightId > 0 && curLightEvent != lightId) {
-					if(lightId > 5) lightId = FlxG.random.int(1, 5, [curLightEvent]);
+					if(lightId > 6) lightId = FlxG.random.int(1, 6, [curLightEvent]);
 
 					var color:Int = 0xffffffff;
 					switch(lightId) {
@@ -3266,8 +3256,8 @@ class PlayState extends MusicBeatState
 							color = 0xfff96d63;
 						case 5: //Orange
 							color = 0xfffba633;
-						case 6: //Blanco
-							color = 0xffffffff;
+						case 6: //Black
+							color = 0xff000000;
 					}
 					curLightEvent = lightId;
 
@@ -3545,6 +3535,42 @@ class PlayState extends MusicBeatState
 						}
 					});
 				}
+			case 'Flash':
+                var value:Int = Std.parseInt(value1);
+				if(value1 == 'blanco')
+					{
+						FlxG.camera.flash(FlxColor.WHITE, 1);
+					}
+
+				if(value1 == 'amarillo')
+                    {
+                        FlxG.camera.flash(FlxColor.YELLOW, 1);
+                    }
+
+                if(value1 == 'verde')
+                    {
+                        FlxG.camera.flash(FlxColor.GREEN, 1);
+                    }
+
+                if(value1 == 'rojo')
+                    {
+                        FlxG.camera.flash(FlxColor.RED, 1);
+                    }
+
+                if(value1 == 'azul')
+                    {
+                        FlxG.camera.flash(FlxColor.BLUE, 1);
+                    }
+
+                if(value1 == 'morado')
+                    {
+                        FlxG.camera.flash(FlxColor.PURPLE, 1);
+                    }
+
+                if(value1 == 'negro')
+                    {
+                        FlxG.camera.flash(FlxColor.BLACK, 1);
+                    }
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
 	}

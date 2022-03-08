@@ -1,6 +1,8 @@
 {
     "song": {
         "song": "b-Blammed",
+		"stage": "philly",
+		"gfVersion": "gf_b",
         "notes": [
             {
                 "mustHitSection": true,

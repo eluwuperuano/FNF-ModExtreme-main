@@ -1,6 +1,8 @@
 {
     "song": {
         "song": "thorns-b",
+		"gfVersion": "gf-pixel_b",
+		"stage": "schoolEvil",
         "notes": [
             {
                 "mustHitSection": false,
@@ -4459,7 +4461,6 @@
         "needsVoices": true,
         "player1": "bf-pixel_b",
         "player2": "spirit_b",
-		"gfVersion": "gf-pixel_b",
         "sectionLengths": [],
         "speed": 2.5
     }

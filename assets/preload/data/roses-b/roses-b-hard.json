@@ -1,6 +1,8 @@
 {
     "song": {
         "song": "Roses-b",
+		"stage": "school",
+		"gfVersion": "gf-pixel_b",
         "notes": [
             {
                 "mustHitSection": false,
@@ -3542,7 +3544,6 @@
         "needsVoices": true,
         "player1": "bf-pixel_b",
         "player2": "senpai-angry_b",
-		"gfVersion": "gf-pixel_b",
         "sectionLengths": [],
         "speed": 2.2
     }

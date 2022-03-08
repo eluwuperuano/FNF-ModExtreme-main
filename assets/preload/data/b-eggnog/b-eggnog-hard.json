@@ -1,6 +1,8 @@
 {
     "song": {
         "song": "b-Eggnog",
+		"stage": "mall",
+		"gfVersion": "gf-christmas_b",
         "notes": [
             {
                 "mustHitSection": true,
