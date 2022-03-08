@@ -438,10 +438,6 @@ class PlayState extends MusicBeatState
 					curStage = 'mall';
 				case 'b-winter-horrorland':
 					curStage = 'mallEvil';
-				case 'senpai-b' | 'roses-b':
-					curStage = 'school';
-				case 'thorns-b':
-					curStage = 'schoolEvil';	
 				default:
 					curStage = 'stage';
 			}

@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				-218,
 				-280
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "idle",
-			"loop": false,
-			"name": "idle spirit"
+			"fps": 24,
+			"name": "idle spirit",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-200,
 				-280
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
-			"name": "left"
+			"fps": 24,
+			"name": "left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				170,
 				110
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
-			"name": "spirit down"
+			"fps": 24,
+			"name": "spirit down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-220,
 				-280
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
-			"name": "right"
+			"fps": 24,
+			"name": "right",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-220,
 				-240
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
-			"name": "up"
+			"fps": 24,
+			"name": "up",
+			"indices": []
 		}
 	],
 	"no_antialiasing": true,
@@ -70,8 +70,8 @@
 		255
 	],
 	"camera_position": [
-		0,
-		0
+		-910,
+		-610
 	],
 	"sing_duration": 4,
 	"scale": 6
