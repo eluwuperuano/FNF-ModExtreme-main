@@ -112,8 +112,7 @@ class CreditsState extends MusicBeatState
 			[''],
 			[''],
 			["b-side mod by"],
-			["neo mod by"],
-			['Rozebud uPic\nand company',		'noneImage',	"creators by b-side mod",					'https://gamebanana.com/mods/42724',	'e86acb']
+			['Rozebud \nand company',		'noneImage',	"creators by b-side mod",					'https://gamebanana.com/mods/42724',	'e86acb']
 		];
 		
 		for(i in pisspoop){

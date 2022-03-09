@@ -428,6 +428,14 @@ class PlayState extends MusicBeatState
 					curStage = 'mallneo';
 				case 'hallucination':
 					curStage = 'mallEvilneo';
+			    case 'bopeebo_d' | 'fresh_d':
+					curStage = 'stage-D';
+			    case 'dad-battle_d':
+					curStage = 'stage-D_dark';
+				case 'spookeez_d' | 'south_d' | 'ghastly':
+					curStage = 'spooky-D';
+				case 'monster_d':
+					curStage = 'spooky-D_monster';
 				default:
 					curStage = 'stage';
 			}
@@ -978,6 +986,64 @@ class PlayState extends MusicBeatState
 				fgFog.antialiasing = true;
 				fgFog.setGraphicSize(Std.int(fgFog.width * 1.30));
 				FlxTween.tween(fgFog,{x: fgFog.x + 100}, 5.5,{ease:FlxEase.cubeOut,type:PINGPONG});
+			case 'stage-D':
+				var bg:BGSprite = new BGSprite('d-side/stageback', -600, -200, 0.9, 0.9);
+				add(bg);
+
+				var stageFront:BGSprite = new BGSprite('d-side/stagefront', -650, 600, 0.9, 0.9);
+				stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+				stageFront.updateHitbox();
+				add(stageFront);
+
+				if(!ClientPrefs.lowQuality) {
+					var stageCurtains:BGSprite = new BGSprite('d-side/stagecurtains', -500, -300, 1.3, 1.3);
+					stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+					stageCurtains.updateHitbox();
+					add(stageCurtains);
+				}
+			case 'stage-D_dark':
+				var bg:BGSprite = new BGSprite('d-side/stagebackdark', -600, -200, 0.9, 0.9);
+				add(bg);
+
+				var stageFront:BGSprite = new BGSprite('d-side/stagefrontDark', -650, 600, 0.9, 0.9);
+				stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+				stageFront.updateHitbox();
+				add(stageFront);
+
+				if(!ClientPrefs.lowQuality) {
+					var stageCurtains:BGSprite = new BGSprite('d-side/stagecurtainsDark', -500, -300, 1.3, 1.3);
+					stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+					stageCurtains.updateHitbox();
+					add(stageCurtains);
+				}
+			case 'spooky-D': //Week 2
+				if(!ClientPrefs.lowQuality) {
+					halloweenBG = new BGSprite('d-side/halloween_bg', -200, -100, ['halloweem bg0', 'halloweem bg lightning strike']);
+				}
+				add(halloweenBG);
+
+				halloweenWhite = new BGSprite(null, -FlxG.width, -FlxG.height, 0, 0);
+				halloweenWhite.makeGraphic(Std.int(FlxG.width * 3), Std.int(FlxG.height * 3), FlxColor.WHITE);
+				halloweenWhite.alpha = 0;
+				halloweenWhite.blend = ADD;
+
+				//PRECACHE SOUNDS
+				CoolUtil.precacheSound('thunder_1');
+				CoolUtil.precacheSound('thunder_2');	
+			case 'spooky-D_monster': //Week 2
+				if(!ClientPrefs.lowQuality) {
+					halloweenBG = new BGSprite('d-side/halloween_bgmonster', -200, -100, ['halloweem bg0', 'halloweem bg lightning strike']);
+				}
+				add(halloweenBG);
+
+				halloweenWhite = new BGSprite(null, -FlxG.width, -FlxG.height, 0, 0);
+				halloweenWhite.makeGraphic(Std.int(FlxG.width * 3), Std.int(FlxG.height * 3), FlxColor.WHITE);
+				halloweenWhite.alpha = 0;
+				halloweenWhite.blend = ADD;
+
+				//PRECACHE SOUNDS
+				CoolUtil.precacheSound('thunder_1');
+				CoolUtil.precacheSound('thunder_2');	
 		}
 
 		if(isPixelStage) {
@@ -1005,6 +1071,14 @@ class PlayState extends MusicBeatState
 			add(stageCurtains);
 		
 		if(curStage == 'spooky') {
+			add(halloweenWhite);
+		}
+		
+		if(curStage == 'spooky-D') {
+			add(halloweenWhite);
+		}
+
+		if(curStage == 'spooky-D_monster') {
 			add(halloweenWhite);
 		}
 
@@ -1126,6 +1200,10 @@ class PlayState extends MusicBeatState
 					gfVersion = 'gf-christmas';
 				case 'school' | 'schoolEvil':
 					gfVersion = 'gf-pixel';
+				case 'stage-D' | 'spooky-D' | 'spooky-D_monster':
+					gfVersion = 'gf_D';
+				case 'stage-D_dark':
+					gfVersion = 'gf_D-dark';
 				default:
 					gfVersion = 'gf';
 			}
@@ -2018,6 +2096,7 @@ class PlayState extends MusicBeatState
 				introAssets.set('default', ['ready', 'set', 'go']);
 				introAssets.set('pixel', ['pixelUI/ready-pixel', 'pixelUI/set-pixel', 'pixelUI/date-pixel']);
 				introAssets.set('neo', ['NEO/feel', 'NEO/the', 'NEO/beat']);
+				introAssets.set('d_side', ['d-side/ready', 'd-side/get_set', 'd-side/go']);
 
 				var introAlts:Array<String> = introAssets.get('default');
 				var antialias:Bool = ClientPrefs.globalAntialiasing;
@@ -2039,6 +2118,9 @@ class PlayState extends MusicBeatState
 						introAlts = introAssets.get('neo');
 						antialias = false;
 						gf.visible = false;
+					case 'stage-D' | 'stage-D_dark' | 'spooky-D' | 'spooky-D_monster':	
+						introAlts = introAssets.get('d_side');
+						antialias = false;
 				}
 
 				// head bopping for bg characters on Mall
@@ -4906,6 +4988,22 @@ class PlayState extends MusicBeatState
 
 				setOnLuas('curBeat', curBeat);//DAWGG?????
 		callOnLuas('onBeatHit', []);
+		if (curStage == 'spooky-D' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
+			{
+				lightningStrikeShit();
+			}
+			lastBeatHit = curBeat;
+	
+					setOnLuas('curBeat', curBeat);//DAWGG?????
+			callOnLuas('onBeatHit', []);
+		if (curStage == 'spooky-D_monster' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)
+		{
+			lightningStrikeShit();
+		}
+		lastBeatHit = curBeat;
+
+				setOnLuas('curBeat', curBeat);//DAWGG?????
+		callOnLuas('onBeatHit', []);	
 	}
 
 	public var closeLuas:Array<FunkinLua> = [];
