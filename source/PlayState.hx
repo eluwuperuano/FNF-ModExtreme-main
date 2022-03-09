@@ -4482,6 +4482,11 @@ class PlayState extends MusicBeatState
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;
 						}
+					case 'Death Note': //Death Note
+						if(boyfriend.animation.getByName('dodgeDOWN') != null) {
+							boyfriend.playAnim('dodgeDOWN', true);
+							boyfriend.specialAnim = true;
+						}
 				}
 				
 				note.wasGoodHit = true;
