@@ -27,6 +27,14 @@ local characterList = { -- The list of characters
         displayName = "pico"
     },
     {
+        name = "bf-faker",
+        displayName = "faker"
+    },
+    {
+        name = "sonic",
+        displayName = "sonic"
+    },
+    {
         name = "bf_neo",
         displayName = "bf neo"
     },
@@ -57,6 +65,22 @@ local characterList = { -- The list of characters
     {
         name = "pico-player_b",
         displayName = "pico player remix"
+    },
+    {
+        name = "bf_D",
+        displayName = "bf D-side"
+    },
+    {
+        name = "bf_D-dark",
+        displayName = "bf D-side dark"
+    },
+    {
+        name = "bf-car_D",
+        displayName = "bf D-side car"
+    },
+    {
+        name = "bf-car_D-dark",
+        displayName = "bf D-side car dark"
     }
 }
 

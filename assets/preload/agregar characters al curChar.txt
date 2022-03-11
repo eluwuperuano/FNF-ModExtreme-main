@@ -1,0 +1,8 @@
+1. Entra a la carpeta scripts que esta en assets.
+2. Abre el archivo 'CharSelect.lua',
+3. Ve a la linea 8 y copia esto:
+	{
+		name = "bf",
+		displayName = "Boyfriend",
+	},
+4. en name pon el nombre de el archivo de tu personaje y en displayName le pones el nombre de presentacion.  

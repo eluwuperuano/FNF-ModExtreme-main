@@ -236,6 +236,7 @@ class PlayState extends MusicBeatState
 	var phillyCityLightsEvent:FlxTypedGroup<BGSprite>;
 	var phillyCityLightsEventTween:FlxTween;
 	var trainSound:FlxSound;
+	var phillyCrowd:BGSprite;
 
 	var limoKillingState:Int = 0;
 	var limo:BGSprite;
@@ -246,6 +247,8 @@ class PlayState extends MusicBeatState
 	var bgLimo:BGSprite;
 	var grpLimoParticles:FlxTypedGroup<BGSprite>;
 	var grpLimoDancers:FlxTypedGroup<BackgroundDancer>;
+	var grpLimoDancers_D:FlxTypedGroup<BackgroundDancer_D>;
+	var grpLimoDancers_D_dark:FlxTypedGroup<BackgroundDancer_D_dark>;
 	var fastCar:BGSprite;
 
 	var upperBoppers:BGSprite;
@@ -436,6 +439,14 @@ class PlayState extends MusicBeatState
 					curStage = 'spooky-D';
 				case 'monster_d':
 					curStage = 'spooky-D_monster';
+				case 'pico_d', 'philly-nice_d':
+					curStage = 'philly-D';
+				case 'blammed_d':
+					curStage = 'philly-D_dark';
+				case 'satin-panties_d' | 'high_d':
+					curStage = 'limo-D';
+				case 'awooga' | 'milf-d':
+					curStage = 'limo-D_dark';
 				default:
 					curStage = 'stage';
 			}
@@ -1043,7 +1054,142 @@ class PlayState extends MusicBeatState
 
 				//PRECACHE SOUNDS
 				CoolUtil.precacheSound('thunder_1');
-				CoolUtil.precacheSound('thunder_2');	
+				CoolUtil.precacheSound('thunder_2');
+
+			case 'philly-D': //Week 3
+				if(!ClientPrefs.lowQuality) {
+					var bg:BGSprite = new BGSprite('d-side/sky', -100, 0, 0.1, 0.1);
+					add(bg);
+				}
+				
+				//addShaderToCamera('game', chromAb);
+				//chromAb.setChrome(0.01);
+
+				var city:BGSprite = new BGSprite('d-side/city', -10, 0, 0.3, 0.3);
+				city.setGraphicSize(Std.int(city.width * 0.85));
+				city.updateHitbox();
+				add(city);
+
+				phillyCityLights = new FlxTypedGroup<BGSprite>();
+				add(phillyCityLights);
+
+				for (i in 0...5)
+				{
+					var light:BGSprite = new BGSprite('philly/win' + i, city.x, city.y, 0.3, 0.3);
+					light.visible = false;
+					light.setGraphicSize(Std.int(light.width * 0.85));
+					light.updateHitbox();
+					phillyCityLights.add(light);
+				}
+
+				if(!ClientPrefs.lowQuality) {
+					var streetBehind:BGSprite = new BGSprite('d-side/behindTrain', -40, 50);
+					add(streetBehind);
+				}
+
+				phillyTrain = new BGSprite('d-side/train', 2000, 360);
+				add(phillyTrain);
+
+				trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
+				CoolUtil.precacheSound('train_passes');
+				FlxG.sound.list.add(trainSound);
+
+				var street:BGSprite = new BGSprite('d-side/street', -40, 50);
+				add(street);
+				
+				phillyCrowd = new BGSprite('d-side/Crowd1', 120, 360, 1, 1, ['Crowd1'], true);
+				phillyCrowd.antialiasing = true;
+				phillyCrowd.setGraphicSize(Std.int(phillyCrowd.width * 0.85));
+				phillyCrowd.updateHitbox();
+				add(phillyCrowd);
+
+			case 'philly-D_dark': //Week 3
+				var bg:BGSprite = new BGSprite('d-side/skyDark', -100, 0, 0.1, 0.1);
+				add(bg);
+
+				var city:BGSprite = new BGSprite('d-side/cityDark', -10, 0, 0.3, 0.3);
+				city.setGraphicSize(Std.int(city.width * 0.85));
+				city.updateHitbox();
+				add(city);
+
+				phillyCityLights = new FlxTypedGroup<BGSprite>();
+				add(phillyCityLights);
+
+				for (i in 0...5)
+				{
+					var light:BGSprite = new BGSprite('philly/win' + i, city.x, city.y, 0.3, 0.3);
+					light.visible = false;
+					light.setGraphicSize(Std.int(light.width * 0.85));
+					light.updateHitbox();
+					phillyCityLights.add(light);
+				}
+
+				var streetBehind:BGSprite = new BGSprite('d-side/behindTrainDark', -40, 50);
+				add(streetBehind);
+
+				phillyTrain = new BGSprite('d-side/trainDark', 2000, 360);
+				add(phillyTrain);
+
+				trainSound = new FlxSound().loadEmbedded(Paths.sound('train_passes'));
+				CoolUtil.precacheSound('train_passes');
+				FlxG.sound.list.add(trainSound);
+
+				var street:BGSprite = new BGSprite('d-side/streetDark', -40, 50);
+				add(street);
+				
+				phillyCrowd = new BGSprite('d-side/Crowd2DARK', -20, 220, 1, 1, ['Crowd2'], true);
+				phillyCrowd.antialiasing = true;
+				phillyCrowd.setGraphicSize(Std.int(phillyCrowd.width * 0.85));
+				phillyCrowd.updateHitbox();
+				add(phillyCrowd);
+
+			case 'limo-D': //Week 4
+				var skyBG:BGSprite = new BGSprite('d-side/limoSunset', -320, -250, 0.1, 0.1);
+				add(skyBG);
+
+				if(!ClientPrefs.lowQuality) {
+					bgLimo = new BGSprite('d-side/bgLimo', -150, 480, 0.4, 0.4, ['background limo pink'], true);
+					add(bgLimo);
+
+					grpLimoDancers_D = new FlxTypedGroup<BackgroundDancer_D>();
+					add(grpLimoDancers_D);
+
+					for (i in 0...5)
+					{
+						var dancer:BackgroundDancer_D = new BackgroundDancer_D((370 * i) + 130, bgLimo.y - 400);
+						dancer.scrollFactor.set(0.4, 0.4);
+						grpLimoDancers_D.add(dancer);
+					}
+				}
+
+				limo = new BGSprite('d-side/limoDrive', -120, 550, 1, 1, ['Limo stage'], true);
+
+				fastCar = new BGSprite('d-side/fastCarLol', -300, 160);
+				fastCar.active = true;
+
+			case 'limo-D_dark': //Week 4
+				var skyBG:BGSprite = new BGSprite('d-side/limoSunsetNight', -320, -250, 0.1, 0.1);
+				add(skyBG);
+
+				if(!ClientPrefs.lowQuality) {
+					bgLimo = new BGSprite('d-side/bgLimoDARK', -150, 480, 0.4, 0.4, ['background limo pink'], true);
+					add(bgLimo);
+
+					grpLimoDancers_D_dark = new FlxTypedGroup<BackgroundDancer_D_dark>();
+					add(grpLimoDancers_D_dark);
+
+					for (i in 0...5)
+					{
+						var dancer:BackgroundDancer_D_dark = new BackgroundDancer_D_dark((370 * i) + 130, bgLimo.y - 400);
+						dancer.scrollFactor.set(0.4, 0.4);
+						grpLimoDancers_D_dark.add(dancer);
+					}
+				}
+
+				limo = new BGSprite('d-side/limoDriveDARK', -120, 550, 1, 1, ['Limo stage'], true);
+
+				fastCar = new BGSprite('d-side/fastCarLolDARK', -300, 160);
+				fastCar.active = true;
 		}
 
 		if(isPixelStage) {
@@ -1092,6 +1238,19 @@ class PlayState extends MusicBeatState
 			
 		if (curStage == 'mallEvilneo')
 			add(fgFog);
+		
+		if (curStage == 'limo-D')
+			add(limo);
+
+		add(dadGroup);
+		add(boyfriendGroup);
+
+		
+		if (curStage == 'limo-D_dark')
+			add(limo);
+
+		add(dadGroup);
+		add(boyfriendGroup);
 
 		#if LUA_ALLOWED
 		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();
@@ -1116,6 +1275,30 @@ class PlayState extends MusicBeatState
 			for (i in 0...2)
 			{
 				var light:BGSprite = new BGSprite('NEO/light' + i, -10, 0, 0.3, 0.3);
+				light.visible = false;
+				light.setGraphicSize(Std.int(light.width * 0.85));
+				light.updateHitbox();
+				phillyCityLightsEvent.add(light);
+			}
+		}
+
+		if(curStage == 'philly-D') {
+			phillyCityLightsEvent = new FlxTypedGroup<BGSprite>();
+			for (i in 0...5)
+			{
+				var light:BGSprite = new BGSprite('philly/win' + i, -10, 0, 0.3, 0.3);
+				light.visible = false;
+				light.setGraphicSize(Std.int(light.width * 0.85));
+				light.updateHitbox();
+				phillyCityLightsEvent.add(light);
+			}
+		}
+
+		if(curStage == 'philly-D_dark') {
+			phillyCityLightsEvent = new FlxTypedGroup<BGSprite>();
+			for (i in 0...5)
+			{
+				var light:BGSprite = new BGSprite('philly/win' + i, -10, 0, 0.3, 0.3);
 				light.visible = false;
 				light.setGraphicSize(Std.int(light.width * 0.85));
 				light.updateHitbox();
@@ -1204,6 +1387,14 @@ class PlayState extends MusicBeatState
 					gfVersion = 'gf_D';
 				case 'stage-D_dark':
 					gfVersion = 'gf_D-dark';
+				case 'philly-D':
+					gfVersion = 'gf_D';
+				case 'philly-D_dark':
+					gfVersion = 'gf_D-dark';
+				case 'limo-D':
+					gfVersion = 'gf-car_D';	
+				case 'limo-D_dark':
+					gfVersion = 'gf-car_D-dark';
 				default:
 					gfVersion = 'gf';
 			}
@@ -1238,6 +1429,14 @@ class PlayState extends MusicBeatState
 		switch(curStage)
 		{
 			case 'limo':
+				resetFastCar();
+				insert(members.indexOf(gfGroup) - 1, fastCar);
+
+			case 'limo-D':
+				resetFastCar();
+				insert(members.indexOf(gfGroup) - 1, fastCar);
+
+			case 'limo-D_dark':
 				resetFastCar();
 				insert(members.indexOf(gfGroup) - 1, fastCar);
 			
@@ -2118,7 +2317,7 @@ class PlayState extends MusicBeatState
 						introAlts = introAssets.get('neo');
 						antialias = false;
 						gf.visible = false;
-					case 'stage-D' | 'stage-D_dark' | 'spooky-D' | 'spooky-D_monster':	
+					case 'stage-D' | 'stage-D_dark' | 'spooky-D' | 'spooky-D_monster' | 'philly-D' | 'philly-D_dark' | 'limo-D' | 'limo-D_dark':	
 						introAlts = introAssets.get('d_side');
 						antialias = false;
 				}
@@ -2693,7 +2892,31 @@ class PlayState extends MusicBeatState
 						trainFrameTiming = 0;
 					}
 				}
-				phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed * 1.5;	
+				phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed * 1.5;
+			case 'philly-D':
+				if (trainMoving)
+				{
+					trainFrameTiming += elapsed;
+
+					if (trainFrameTiming >= 1 / 24)
+					{
+						updateTrainPos();
+						trainFrameTiming = 0;
+					}
+				}
+				//phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed * 1.5;
+			case 'philly-D_dark':
+				if (trainMoving)
+				{
+					trainFrameTiming += elapsed;
+
+					if (trainFrameTiming >= 1 / 24)
+					{
+						updateTrainPos();
+						trainFrameTiming = 0;
+					}
+				}
+				//phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed * 1.5;
 			case 'limo':
 				if(!ClientPrefs.lowQuality) {
 					grpLimoParticles.forEach(function(spr:BGSprite) {
@@ -3701,7 +3924,11 @@ class PlayState extends MusicBeatState
 				case 'limo':
 					camFollow.x = boyfriend.getMidpoint().x - 300;
 				case 'limoneo':
-					camFollow.x = boyfriend.getMidpoint().x - 300;	
+					camFollow.x = boyfriend.getMidpoint().x - 300;
+				case 'limo-D':
+					camFollow.x = boyfriend.getMidpoint().x - 300;
+				case 'limo-D_dark':
+					camFollow.x = boyfriend.getMidpoint().x - 300;		
 				case 'mall':
 					camFollow.y = boyfriend.getMidpoint().y - 200;
 				case 'school' | 'schoolEvil':
@@ -4482,11 +4709,6 @@ class PlayState extends MusicBeatState
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;
 						}
-					case 'Death Note': //Death Note
-						if(boyfriend.animation.getByName('dodgeDOWN') != null) {
-							boyfriend.playAnim('dodgeDOWN', true);
-							boyfriend.specialAnim = true;
-						}
 				}
 				
 				note.wasGoodHit = true;
@@ -4850,7 +5072,7 @@ class PlayState extends MusicBeatState
 					Boppers2.visible = false;
 					gf.visible = false;
 				}
-			}
+			}	
 
 		if(lastBeatHit >= curBeat) {
 			//trace('BEAT HIT: ' + curBeat + ', LAST HIT: ' + lastBeatHit);
@@ -4939,6 +5161,26 @@ class PlayState extends MusicBeatState
 
 				if (FlxG.random.bool(10) && fastCarCanDrive)
 					fastCarDrive();
+			case 'limo-D':
+				if(!ClientPrefs.lowQuality) {
+					grpLimoDancers_D.forEach(function(dancer:BackgroundDancer_D)
+					{
+						dancer.dance();
+					});
+				}
+
+				if (FlxG.random.bool(10) && fastCarCanDrive)
+					fastCarDrive();
+			case 'limo-D_dark':
+				if(!ClientPrefs.lowQuality) {
+					grpLimoDancers_D_dark.forEach(function(dancer:BackgroundDancer_D_dark)
+					{
+						dancer.dance();
+					});
+				}
+
+				if (FlxG.random.bool(10) && fastCarCanDrive)
+					fastCarDrive();
 			case "philly":
 				if (!trainMoving)
 					trainCooldown += 1;
@@ -4982,7 +5224,51 @@ class PlayState extends MusicBeatState
 				{
 					trainCooldown = FlxG.random.int(-4, 0);
 					trainStart();
-				}	
+				}
+			case "philly-D":
+				if (!trainMoving)
+					trainCooldown += 1;
+
+				if (curBeat % 4 == 0)
+				{
+					phillyCityLights.forEach(function(light:BGSprite)
+					{
+						light.visible = false;
+					});
+
+					curLight = FlxG.random.int(0, phillyCityLights.length - 1, [curLight]);
+
+					phillyCityLights.members[curLight].visible = true;
+					phillyCityLights.members[curLight].alpha = 1;
+				}
+
+				if (curBeat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+				{
+					trainCooldown = FlxG.random.int(-4, 0);
+					trainStart();
+				}
+			case "philly-D_dark":
+				if (!trainMoving)
+					trainCooldown += 1;
+
+				if (curBeat % 4 == 0)
+				{
+					phillyCityLights.forEach(function(light:BGSprite)
+					{
+						light.visible = false;
+					});
+
+					curLight = FlxG.random.int(0, phillyCityLights.length - 1, [curLight]);
+
+					phillyCityLights.members[curLight].visible = true;
+					phillyCityLights.members[curLight].alpha = 1;
+				}
+
+				if (curBeat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+				{
+					trainCooldown = FlxG.random.int(-4, 0);
+					trainStart();
+				}			
 		}
 
 		if (curStage == 'spooky' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)

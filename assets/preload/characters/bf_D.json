@@ -156,45 +156,45 @@
 		},
 		{
 			"offsets": [
-				-20,
-				-30
+				13,
+				-33
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "dodgeLEFT",
+			"anim": "singLEFT-dodge",
 			"loop": false,
 			"name": "BF NOTE LEFT DODGE0"
 		},
 		{
 			"offsets": [
-				-20,
-				-10
+				-52,
+				1
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "dodgeDOWN",
+			"anim": "singDOWN-dodge",
 			"loop": false,
 			"name": "BF NOTE DOWN DODGE0"
 		},
 		{
 			"offsets": [
-				-20,
-				40
+				-60,
+				37
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "dodgeUP",
+			"anim": "singUP-dodge",
 			"loop": false,
 			"name": "BF NOTE UP DODGE0"
 		},
 		{
 			"offsets": [
-				0,
-				-20
+				-77,
+				-19
 			],
 			"indices": [],
 			"fps": 24,
-			"anim": "dodgeRIGHT",
+			"anim": "singRIGHT-dodge",
 			"loop": false,
 			"name": "BF NOTE RIGHT DODGE0"
 		}
